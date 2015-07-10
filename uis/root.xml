@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ViewStack id="'rootStack'" w="stage.stageWidth" h="stage.stageHeight" trans:Scale-scaleUp="true" overflow="false">
+        <Widget name="'desktop'" skin:Paint-color="0x002b3c" widthPt="100" heightPt="100">
+			<Widget skin:Gradient-colors="[0x004E6A, 0x002835]" skin:Gradient-border="2" skin:Gradient-borderColor="0x00222F" widthPt="100" h="40">
+				<Button left="10" top="4" text="'test'"></Button>
+				<Button left="120" top="4" text="'test'"></Button>
+			</Widget>
+		</Widget>
+
+</ViewStack>
