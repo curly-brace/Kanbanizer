@@ -5,6 +5,8 @@ import openfl.display.StageAlign;
 import openfl.display.StageScaleMode;
 import openfl.events.Event;
 import openfl.Lib;
+import openfl.text.TextField;
+import openfl.text.TextFieldType;
 import ru.stablex.ui.UIBuilder;
 import ru.stablex.ui.widgets.Widget;
 
@@ -28,13 +30,13 @@ class Main extends Sprite{
 	private function init(event:Event) {
 		removeEventListener(Event.ADDED_TO_STAGE, init);
 		stage.addEventListener(Event.RESIZE, onResize);
-		
+
 		//UIBuilder.regClass('ru.stablex.ui.skins.Aswing');
-		
+		UIBuilder.regClass('widgets.Accordion');
 		UIBuilder.setTheme('theme');
 		UIBuilder.init();
 		
-		rootStack = UIBuilder.buildFn('uis/test.xml')();
+		rootStack = UIBuilder.buildFn('uis/root.xml')();
 		stage.addChild(rootStack);
 	}
 	

@@ -1,59 +1,83 @@
 package theme;
 
-import ru.stablex.ui.skins.Paint;
+import ru.stablex.ui.misc.ColorUtils;
+import ru.stablex.ui.skins.Gradient;
+import ru.stablex.ui.skins.Slice3;
 
 //<!-- make green button using skin from Rainbow theme -->
 //<Button text="'i am button'" skinName="'green'" />
 
 class Skins {
-	// helper method
-	static public function colorSkin (color:Int) : Paint {
-		var skin   = new Paint();
-		skin.color = color;
-		skin.corners = [5];
+	
+	static public function defaultButtonUp():Slice3 {
+		var skin = new Slice3();
+		skin.bitmapData = Main.getBitmapData('img/button_up.png');
+		return skin;
+	}
+	
+	static public function defaultButtonOver():Slice3 {
+		var skin = new Slice3();
+		skin.bitmapData = Main.getBitmapData('img/button_over.png');
+		return skin;
+	}
+	
+	static public function defaultButtonDown():Slice3 {
+		var skin = new Slice3();
+		skin.bitmapData = Main.getBitmapData('img/button_down.png');
 		return skin;
 	}
 
-	//static public function rainbow () : Img {
-	static public function rainbow () : Paint {
-		//var skin = new Img();
-		//skin.scaleImg = true;
-		/**
-		* :NOTICE:
-		*   To get resources of your theme (images, fonts, etc) use `Main.getBitmapData()`, `Main.getFont()` etc.
-		*   Where `Main` - is the main class of your theme.
-		*/
-		//skin.src = Main.getBitmapData('assets/rainbow.png'); //This is `assets` folder of your theme, not your project.
-		//return skin;
-		
-		return colorSkin(0x52C2ED);
+	static public function redButtonUp():Slice3 {
+		var skin = new Slice3();
+		skin.bitmapData = Main.getBitmapData('img/red_button_up.png');
+		return skin;
 	}
-
-	static public function red () : Paint {
-		return colorSkin(0xFF0000);
+	
+	static public function redButtonOver():Slice3 {
+		var skin = new Slice3();
+		skin.bitmapData = Main.getBitmapData('img/red_button_over.png');
+		return skin;
 	}
-
-	static public function orange () : Paint {
-		return colorSkin(0xFF7F00);
+	
+	static public function redButtonDown():Slice3 {
+		var skin = new Slice3();
+		skin.bitmapData = Main.getBitmapData('img/red_button_down.png');
+		return skin;
 	}
-
-	static public function yellow () : Paint {
-		return colorSkin(0xFFFF00);
+	
+	static public function greenButtonUp():Slice3 {
+		var skin = new Slice3();
+		skin.bitmapData = Main.getBitmapData('img/green_button_up.png');
+		return skin;
 	}
-
-	static public function green () : Paint {
-		return colorSkin(0x00FF00);
+	
+	static public function greenButtonOver():Slice3 {
+		var skin = new Slice3();
+		skin.bitmapData = Main.getBitmapData('img/green_button_over.png');
+		return skin;
 	}
-
-	static public function blue () : Paint {
-		return colorSkin(0x0000FF);
+	
+	static public function greenButtonDown():Slice3 {
+		var skin = new Slice3();
+		skin.bitmapData = Main.getBitmapData('img/green_button_down.png');
+		return skin;
 	}
-
-	static public function indigo () : Paint {
-		return colorSkin(0x4B0082);
+	
+	static public function inputBack():Slice3 {
+		var skin = new Slice3();
+		skin.bitmapData = Main.getBitmapData('img/input.png');
+		return skin;
 	}
-
-	static public function violet () : Paint {
-		return colorSkin(0x8B00FF);
+	
+	static public function background():Gradient {
+		var skin = new Gradient();
+		skin.colors = [ColorUtils.brighten(Main.darkColor, 0.1), Main.darkColor];
+		return skin;
+	}
+	
+	static public function accordion():Slice3 {
+		var skin = new Slice3();
+		skin.bitmapData = Main.getBitmapData('img/accordion.png');
+		return skin;
 	}
 }

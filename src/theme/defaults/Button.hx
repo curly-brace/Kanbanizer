@@ -1,47 +1,47 @@
 package theme.defaults;
 
+import openfl.text.AntiAliasType;
 import ru.stablex.ui.UIBuilder;
 import ru.stablex.ui.widgets.Button in WButton;
 import ru.stablex.ui.widgets.Widget;
 import theme.Main;
 
 class Button {
-   static private var _defaultFn : Widget->Void = null;
-
-
-    /**
-    * Apply default section to widget
-    *
-    */
-    static private inline function _applyDefault (btn:WButton) : Void {
-        if( _defaultFn == null ){
-            _defaultFn = UIBuilder.defaults.get('Button').get('Default');
-        }
-        _defaultFn(btn);
-    }//function _applyDefault()
 	
-	static public function Default (w:Widget) : Void {
+	static public function Default(w:Widget) {
 		var btn = cast(w, WButton);
 
 		btn.w = 100;
 		btn.h = 32;
-
-		btn.onPress   = function(_) { btn.y ++; };
-		btn.onRelease = function(_) { btn.y --; };
-
-		btn.skinName = 'green';
-		btn.skinHoveredName = 'yellow';
-		btn.skinPressedName = 'rainbow';
+		
+		btn.label.embedFonts = true;
+		btn.format.size = 14;
+        btn.format.color = Main.lightFont;
+        btn.format.font = Main.mainFont;
+		
+		
+		btn.skinName = 'defaultButtonUp';
+		btn.skinHoveredName = 'defaultButtonOver';
+		btn.skinPressedName = 'defaultButtonDown';
 	}
 	
-	//<Button defaults="'Special'" text="'I am so special!'"/>
-	static public function Special (w:Widget) : Void {
+	static public function Green(w:Widget) {
 		Default(w);
 
 		var btn = cast(w, WButton);
 
-		btn.skinName        = 'rainbow';
-		btn.skinHoveredName = 'rainbow';
-		btn.skinPressedName = 'rainbow';
+		btn.skinName = 'greenButtonUp';
+		btn.skinHoveredName = 'greenButtonOver';
+		btn.skinPressedName = 'greenButtonDown';
+	}
+
+	static public function Red(w:Widget) {
+		Default(w);
+
+		var btn = cast(w, WButton);
+
+		btn.skinName = 'redButtonUp';
+		btn.skinHoveredName = 'redButtonOver';
+		btn.skinPressedName = 'redButtonDown';
 	}
 }

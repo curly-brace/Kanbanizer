@@ -3,12 +3,16 @@
 	<meta title="Kanbanizer" package="com.curlybrace.kanbanizer" version="1.0.0" company="Curly Brace" />
 	<app main="Main" path="Export" file="Kanbanizer" />
 	
-	<window background="#FFFFFF" fps="60" resizable="true" />
+	<window background="#FFFFFF" fps="30" resizable="true" />
     <window width="800" height="600" unless="mobile" />
 	<window fullscreen="true" if="mobile" />
     <window orientation="landscape" vsync="false" antialiasing="0" if="cpp" />
 	
 	<source path="src" />
+	
+	<!-- because of uneditable TextFields on neko/cpp -->
+	<!-- https://github.com/openfl/openfl/issues/598 -->
+	<set name="openfl-legacy" />
 	
     <haxelib name="openfl" />
 	<haxelib name="stablexui" />

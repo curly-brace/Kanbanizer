@@ -8,6 +8,11 @@ class Widget {
 	//<Widget defaults="'HRLight'" />
 	//<Widget h="5" />
 	
+	static public function Background(w:ru.stablex.ui.widgets.Widget):Void {
+		w.skinName = 'background';
+		w.widthPt = 100;
+	}
+	
     static public function HR (w:ru.stablex.ui.widgets.Widget) : Void {
         w.h = 1;
         w.widthPt = 100;
