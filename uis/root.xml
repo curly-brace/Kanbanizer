@@ -3,23 +3,23 @@
         <Widget name="'desktop'" defaults="'Background'" heightPt="100" layout:Row-rows="[40, -1]">
 			<Widget defaults="'Background'" >
 				<Widget widthPt="99" h="32" top="4" left="4" layout:Column-cols="[120, 110, -1, 90, 32]" layout:Column-cellPadding="4">
-					<Button text="'New board'" ico-src="'icons/add_group_icon.png'"/>
-					<Button left="192"  text="'Calendar'" ico-src="'icons/calendar_icon.png'" />
+					<Button text="'New board'" defaults="'AddGroup'" />
+					<Button left="192" text="'Calendar'" defaults="'Calendar'" />
 					<InputText top="4" text="'Search for board'" on-click="if($this.text=='Search for board')$this.text=' ';"/>
-					<Button left="98"  text="'Closed'" ico-src="'icons/trash_icon.png'" />
-					<Button left="322" paddingLeft="11" ico-src="'icons/menu_icon.png'" />
+					<Button left="98"  text="'Closed'" defaults="'Trash'" />
+					<Button left="322" defaults="'Menu'" />
 				</Widget>
 			</Widget>
-			<Scroll widthPt="100" >
-				<Widget>
+			<Scroll widthPt="100" heightPt="100" >
+				<HBox widthPt="100" heightPt="100" >
 					
-					<Accordion header-text="'test 1'" >
-						<Widget skin:Gradient-colors="[0xffffff, 0x000000]" widthPt="100" heightPt="100">
-							<Button left="16" paddingLeft="11" ico-src="'icons/menu_icon.png'" />
+					<Accordion text="'test'" on-add="trace('add');"  on-edit="trace('edit');"  on-remove="trace('remove');" >
+						<Widget skin:Gradient-colors="[0xffffff, 0x000000]" >
+							
 						</Widget>
 					</Accordion>
 
-				</Widget>
+				</HBox>
 			</Scroll>
 		</Widget>
 

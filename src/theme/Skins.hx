@@ -2,10 +2,8 @@ package theme;
 
 import ru.stablex.ui.misc.ColorUtils;
 import ru.stablex.ui.skins.Gradient;
+import ru.stablex.ui.skins.Img;
 import ru.stablex.ui.skins.Slice3;
-
-//<!-- make green button using skin from Rainbow theme -->
-//<Button text="'i am button'" skinName="'green'" />
 
 class Skins {
 	
@@ -75,9 +73,45 @@ class Skins {
 		return skin;
 	}
 	
-	static public function accordion():Slice3 {
+	static public function header():Slice3 {
 		var skin = new Slice3();
-		skin.bitmapData = Main.getBitmapData('img/accordion.png');
+		skin.bitmapData = Main.getBitmapData('img/header.png');
+		return skin;
+	}
+	
+	static public function arrowSide():Img {
+		var skin = new Img();
+		skin.bitmapData = Main.getBitmapData('img/ico/arrow_side.png');
+		return skin;
+	}
+	
+	static public function arrowDown():Img {
+		var skin = new Img();
+		skin.bitmapData = Main.getBitmapData('img/ico/arrow_down.png');
+		return skin;
+	}
+	
+	static public function bigArrowDown():Img {
+		var skin = new Img();
+		skin.bitmapData = Main.getBitmapData('img/ico/big_arrow_down.png');
+		return skin;
+	}
+	
+	static public function smallButtonUp():Slice3 {
+		var skin = new Slice3();
+		skin.bitmapData = Main.getBitmapData('img/small_up.png');
+		return skin;
+	}
+	
+	static public function smallButtonOver():Slice3 {
+		var skin = new Slice3();
+		skin.bitmapData = Main.getBitmapData('img/small_over.png');
+		return skin;
+	}
+	
+	static public function smallButtonDown():Slice3 {
+		var skin = new Slice3();
+		skin.bitmapData = Main.getBitmapData('img/small_down.png');
 		return skin;
 	}
 }

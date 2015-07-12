@@ -5,8 +5,6 @@ import theme.Main;
 import ru.stablex.ui.UIBuilder;
 
 class Widget {
-	//<Widget defaults="'HRLight'" />
-	//<Widget h="5" />
 	
 	static public function Background(w:ru.stablex.ui.widgets.Widget):Void {
 		w.skinName = 'background';
@@ -23,5 +21,15 @@ class Widget {
         UIBuilder.defaults.get('Widget').get('HR')(w);
         w.skin.as(Paint).color = 0xa9a9a9;
     }
+	
+	static public function Header(w:ru.stablex.ui.widgets.Widget):Void {
+		w.skinName = 'header';
+		w.widthPt = 100;
+		w.h = 32;
+	}
+	
+	static public function AccordionArrow(w:ru.stablex.ui.widgets.Widget):Void {
+		w.skinName = 'bigArrowDown';
+	}
 
 }

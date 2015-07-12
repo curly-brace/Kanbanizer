@@ -9,7 +9,7 @@ import openfl.text.TextField;
 import openfl.text.TextFieldType;
 import ru.stablex.ui.UIBuilder;
 import ru.stablex.ui.widgets.Widget;
-
+import widgets.Accordion.AccordionEvent;
 
 class Main extends Sprite{
 	private var rootStack:Widget;
@@ -31,8 +31,11 @@ class Main extends Sprite{
 		removeEventListener(Event.ADDED_TO_STAGE, init);
 		stage.addEventListener(Event.RESIZE, onResize);
 
-		//UIBuilder.regClass('ru.stablex.ui.skins.Aswing');
 		UIBuilder.regClass('widgets.Accordion');
+		UIBuilder.regEvent('add',  'widgets.AccordionEvent.ADD', 'widgets.AccordionEvent');
+		UIBuilder.regEvent('edit',  'widgets.AccordionEvent.EDIT', 'widgets.AccordionEvent');
+		UIBuilder.regEvent('remove',  'widgets.AccordionEvent.REMOVE', 'widgets.AccordionEvent');
+		
 		UIBuilder.setTheme('theme');
 		UIBuilder.init();
 		
