@@ -4,10 +4,13 @@ import openfl.display.Sprite;
 import openfl.display.StageAlign;
 import openfl.display.StageScaleMode;
 import openfl.events.Event;
+import openfl.events.MouseEvent;
 import openfl.Lib;
 import openfl.text.TextField;
 import openfl.text.TextFieldType;
 import ru.stablex.ui.UIBuilder;
+import ru.stablex.ui.widgets.Button;
+import ru.stablex.ui.widgets.Scroll;
 import ru.stablex.ui.widgets.Widget;
 import widgets.Accordion.AccordionEvent;
 
@@ -32,6 +35,7 @@ class Main extends Sprite{
 		stage.addEventListener(Event.RESIZE, onResize);
 
 		UIBuilder.regClass('widgets.Accordion');
+		UIBuilder.regClass('widgets.GridBox');
 		UIBuilder.regEvent('add',  'widgets.AccordionEvent.ADD', 'widgets.AccordionEvent');
 		UIBuilder.regEvent('edit',  'widgets.AccordionEvent.EDIT', 'widgets.AccordionEvent');
 		UIBuilder.regEvent('remove',  'widgets.AccordionEvent.REMOVE', 'widgets.AccordionEvent');
@@ -41,9 +45,15 @@ class Main extends Sprite{
 		
 		rootStack = UIBuilder.buildFn('uis/root.xml')();
 		stage.addChild(rootStack);
+		
+		UIBuilder.get('scroll').as(Scroll).refresh();
+		UIBuilder.get('scroll').as(Scroll).hBar = null;
+		
+		
 	}
 	
 	private function onResize(event:Event) {
 		rootStack.resize(stage.stageWidth, stage.stageHeight);
+		UIBuilder.get('scroll').as(Scroll).hBar = null;
 	}
 }

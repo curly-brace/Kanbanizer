@@ -22,6 +22,8 @@ class Accordion extends VBox {
 	public var editButton:Button;
 	public var removeButton:Button;
 	
+	private var curHeight = 300.0;
+	
 	public var text(default, set):String;
 
 	function set_text(txt) {
@@ -37,7 +39,8 @@ class Accordion extends VBox {
 		this.widthPt = 100;
 		this.heightPt = 100;
 		this.align = 'center,top';
-
+		this.overflow = false;
+		
 		header = UIBuilder.create(Widget, {
 			defaults: 'Header',
 			layout: {
@@ -47,7 +50,7 @@ class Accordion extends VBox {
 				l.paddingTop = 4;
 				l.paddingBottom = 4;
 				l.paddingLeft = 4;
-				l.paddingRight = 4;
+				l.paddingRight = 12;
 				l;
 			},
 			children : [
@@ -73,9 +76,7 @@ class Accordion extends VBox {
 		addButton.addEventListener(MouseEvent.CLICK, addClick);
 		editButton.addEventListener(MouseEvent.CLICK, editClick);
 		removeButton.addEventListener(MouseEvent.CLICK, removeClick);
-		
-		
-		
+
 		addChild(header);
     }
 	
@@ -99,20 +100,24 @@ class Accordion extends VBox {
 
 		if (area != null) {
 			if (opened) {
-				area.tween(.5, { heightPt: 100 }, 'Quad.easeInOut');
+				this.tween(.5, { h: this.curHeight }, 'Quad.easeInOut');
 			} else {
-				area.tween(.5, { h: .5 }, 'Quad.easeInOut');
+				curHeight = this.h;
+				this.tween(.5, { h: 32 }, 'Quad.easeInOut');
 			}
 		}
 		
 		setArrow(!opened);
 	}
 	
+	public function setHeight(hh:Float) {
+		this.h = hh + 32;
+	}
+	
 	override public function onCreate():Void {
 		super.onCreate();
 		
 		area = getArea();
-		area.overflow = false;
 		area.widthPt = 100;
 		area.heightPt = 100;
 	}

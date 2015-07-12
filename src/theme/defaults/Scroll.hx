@@ -9,16 +9,8 @@ import ru.stablex.ui.events.WidgetEvent;
 import ru.stablex.ui.widgets.Widget;
 
 class Scroll {
-
-    static private function _showVBar (e:WidgetEvent) : Void {
-        cast(e.target, WScroll).vBar.visible = true;
-    }
-
-    static private function _hideVBar (e:WidgetEvent) : Void {
-        cast(e.target, WScroll).vBar.visible = false;
-    }
 	
-    static public function Default (w:Widget) : Void {
+    static public function Screeen (w:Widget) : Void {
         var scroll = cast(w, WScroll);
 		
         scroll.widthPt      = 100;
@@ -26,14 +18,7 @@ class Scroll {
         scroll.hScroll      = false;
         scroll.hBar         = null;
         scroll.vBar.visible = false;
-        scroll.vBar.w       = 5;
+        scroll.vBar.w       = 8;
         scroll.vBar.right   = 2;
-        //scroll.skinName     = 'Black1';
-
-        //var barSkin = scroll.vBar.skin.as(Layer);
-        ///barSkin.current.as(Paint).padding = 2;
-
-        scroll.addEventListener(WidgetEvent.SCROLL_START, _showVBar);
-        scroll.addEventListener(WidgetEvent.SCROLL_STOP, _hideVBar);
     }
 }

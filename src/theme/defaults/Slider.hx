@@ -12,9 +12,9 @@ class Slider {
         var slider = cast(w, WSlider);
         slider.h = slider.w = 20;
         slider.slider.w = slider.slider.h = 20;
-
+		
         var skin = new Paint();
-        skin.color = Main.mainColor;
+        skin.color = Main.lightColor;
 		skin.corners = [10];
         slider.slider.skin = skin;
     }
