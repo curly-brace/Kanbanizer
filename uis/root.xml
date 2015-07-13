@@ -1,40 +1,41 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ViewStack id="'rootStack'" w="stage.stageWidth" h="stage.stageHeight" trans:Scale-scaleUp="true" overflow="false">
-        <Widget name="'desktop'" defaults="'Background'" heightPt="100" layout:Row-rows="[40, -1]">
+        <Widget id="'desktop'" defaults="'Background'" heightPt="100" layout:Row-rows="[40, -1]">
 			<Widget defaults="'Background'" >
 				<Widget widthPt="99" h="32" top="4" left="4" layout:Column-cols="[120, 110, -1, 90, 32]" layout:Column-cellPadding="4">
 					<Button text="'Add group'" defaults="'AddGroup'" />
 					<Button left="192" text="'Calendar'" defaults="'Calendar'" />
 					<InputText top="4" text="'Search for board'" on-click="if($this.text=='Search for board')$this.text='';"/>
 					<Button left="98"  text="'Closed'" defaults="'Trash'" />
-					<Button id="'test'" left="322" defaults="'Menu'" on-click="#Accordion(acc).refresh();" />
+					<Button left="322" defaults="'Menu'" />
 				</Widget>
 			</Widget>
 			<Scroll id="'scroll'">
 				<VBox widthPt="100" align="'center,top'" >
-					<Accordion id="'acc'" h="400" text="'test 1'" on-add="trace('add');"  on-edit="trace('edit');"  on-remove="trace('remove');" >
+					<Accordion h="400" text="'test 1'" >
 						<GridBox itemWidth="100" itemHeight="100">
-							<Widget w="200" h="200" skin:Paint-color="0xFF0000" />
-							<Widget w="200" h="200" skin:Paint-color="0xFF8040" />
-							<Widget w="200" h="200" skin:Paint-color="0xFFFF00" />
-							<Widget w="200" h="200" skin:Paint-color="0x00FF00" />
-							<Widget w="200" h="200" skin:Paint-color="0x0080FF" />
-							<Widget w="200" h="200" skin:Paint-color="0x0000FF" />
-							<Widget w="200" h="200" skin:Paint-color="0x8000FF" />
+							<Draggable w="200" h="200" skin:Paint-color="0xFF0000" />
+							<Draggable w="200" h="200" skin:Paint-color="0xFF8040" />
+							<Draggable w="200" h="200" skin:Paint-color="0xFFFF00" />
+							<Draggable w="200" h="200" skin:Paint-color="0x00FF00" />
+							<Draggable w="200" h="200" skin:Paint-color="0x0080FF" />
+							<Draggable w="200" h="200" skin:Paint-color="0x0000FF" />
+							<Draggable w="200" h="200" skin:Paint-color="0x8000FF" />
 						</GridBox>
 					</Accordion>
-					<Accordion h="400" text="'test 2'" on-add="trace('add');"  on-edit="trace('edit');"  on-remove="trace('remove');" >
+					<Accordion h="400" text="'test 2'" on-add="trace('add');" >
 						<GridBox itemWidth="100" itemHeight="100">>
-							<Widget w="200" h="200" skin:Paint-color="0xFF0000" />
-							<Widget w="200" h="200" skin:Paint-color="0xFF8040" />
-							<Widget w="200" h="200" skin:Paint-color="0xFFFF00" />
-							<Widget w="200" h="200" skin:Paint-color="0x00FF00" />
-							<Widget w="200" h="200" skin:Paint-color="0x0080FF" />
-							<Widget w="200" h="200" skin:Paint-color="0x0000FF" />
-							<Widget w="200" h="200" skin:Paint-color="0x8000FF" />
+							<Draggable w="200" h="200" skin:Paint-color="0xFF0000" />
+							<Draggable w="200" h="200" skin:Paint-color="0xFF8040" />
+							<Draggable w="200" h="200" skin:Paint-color="0xFFFF00" />
+							<Draggable w="200" h="200" skin:Paint-color="0x00FF00" />
+							<Draggable w="200" h="200" skin:Paint-color="0x0080FF" />
+							<Draggable w="200" h="200" skin:Paint-color="0x0000FF" />
+							<Draggable w="200" h="200" skin:Paint-color="0x8000FF" />
 						</GridBox>
 					</Accordion>
 				</VBox>
 			</Scroll>
+			
 		</Widget>
 </ViewStack>

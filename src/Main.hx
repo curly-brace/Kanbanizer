@@ -36,6 +36,7 @@ class Main extends Sprite{
 
 		UIBuilder.regClass('widgets.Accordion');
 		UIBuilder.regClass('widgets.GridBox');
+		UIBuilder.regClass('widgets.Draggable');
 		UIBuilder.regEvent('add',  'widgets.AccordionEvent.ADD', 'widgets.AccordionEvent');
 		UIBuilder.regEvent('edit',  'widgets.AccordionEvent.EDIT', 'widgets.AccordionEvent');
 		UIBuilder.regEvent('remove',  'widgets.AccordionEvent.REMOVE', 'widgets.AccordionEvent');
@@ -49,7 +50,7 @@ class Main extends Sprite{
 		UIBuilder.get('scroll').as(Scroll).refresh();
 		UIBuilder.get('scroll').as(Scroll).hBar = null;
 		
-		
+		Registry.dragRoot = UIBuilder.get('desktop');
 	}
 	
 	private function onResize(event:Event) {

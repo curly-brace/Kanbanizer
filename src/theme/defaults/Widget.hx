@@ -31,5 +31,10 @@ class Widget {
 	static public function AccordionArrow(w:ru.stablex.ui.widgets.Widget):Void {
 		w.skinName = 'bigArrowDown';
 	}
-
+	
+	static public function DragShadow(w:ru.stablex.ui.widgets.Widget):Void {
+		w.skinName = 'dragShadow';
+		w.w = 100;
+		w.h = 100;
+	}
 }

@@ -3,6 +3,7 @@ package theme;
 import ru.stablex.ui.misc.ColorUtils;
 import ru.stablex.ui.skins.Gradient;
 import ru.stablex.ui.skins.Img;
+import ru.stablex.ui.skins.Paint;
 import ru.stablex.ui.skins.Slice3;
 
 class Skins {
@@ -112,6 +113,15 @@ class Skins {
 	static public function smallButtonDown():Slice3 {
 		var skin = new Slice3();
 		skin.bitmapData = Main.getBitmapData('img/small_down.png');
+		return skin;
+	}
+	
+	static public function dragShadow():Paint {
+		var skin = new Paint();
+		skin.color = ColorUtils.darken(Main.darkColor, 0.1);
+		skin.borderColor = ColorUtils.brighten(Main.darkColor, 0.1);
+		skin.border = 2;
+		skin.corners = [20];
 		return skin;
 	}
 }

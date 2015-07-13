@@ -1,8 +1,11 @@
 package widgets;
 
+import flash.events.Event;
 import openfl.display.DisplayObject;
 import openfl.events.MouseEvent;
 import ru.stablex.Err;
+import ru.stablex.ui.Dnd;
+import ru.stablex.ui.events.DndEvent;
 import ru.stablex.ui.events.WidgetEvent;
 import ru.stablex.ui.layouts.Column;
 import ru.stablex.ui.UIBuilder;
@@ -39,7 +42,7 @@ class Accordion extends VBox {
 		this.widthPt = 100;
 		this.heightPt = 100;
 		this.align = 'center,top';
-		this.overflow = false;
+		this.overflow = true;
 		
 		header = UIBuilder.create(Widget, {
 			defaults: 'Header',
@@ -76,7 +79,7 @@ class Accordion extends VBox {
 		addButton.addEventListener(MouseEvent.CLICK, addClick);
 		editButton.addEventListener(MouseEvent.CLICK, editClick);
 		removeButton.addEventListener(MouseEvent.CLICK, removeClick);
-
+		
 		addChild(header);
     }
 	
@@ -100,8 +103,10 @@ class Accordion extends VBox {
 
 		if (area != null) {
 			if (opened) {
+				this.overflow = true;
 				this.tween(.5, { h: this.curHeight }, 'Quad.easeInOut');
 			} else {
+				this.overflow = false;
 				curHeight = this.h;
 				this.tween(.5, { h: 32 }, 'Quad.easeInOut');
 			}
