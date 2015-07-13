@@ -42,7 +42,7 @@ class Accordion extends VBox {
 		this.widthPt = 100;
 		this.heightPt = 100;
 		this.align = 'center,top';
-		this.overflow = true;
+		this.overflow = false;
 		
 		header = UIBuilder.create(Widget, {
 			defaults: 'Header',
@@ -103,11 +103,11 @@ class Accordion extends VBox {
 
 		if (area != null) {
 			if (opened) {
-				this.overflow = true;
+				area.mouseEnabled = true;
 				this.tween(.5, { h: this.curHeight }, 'Quad.easeInOut');
 			} else {
-				this.overflow = false;
 				curHeight = this.h;
+				area.mouseEnabled = false;
 				this.tween(.5, { h: 32 }, 'Quad.easeInOut');
 			}
 		}

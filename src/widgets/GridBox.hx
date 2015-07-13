@@ -1,5 +1,6 @@
 package widgets;
 
+import flash.events.DataEvent;
 import openfl.display.DisplayObject;
 import openfl.display.Sprite;
 import openfl.events.Event;
@@ -39,29 +40,32 @@ class GridBox extends Widget{
 		this.dragShadow.mouseEnabled = false;
 
 		this.addEventListener(DndEvent.RECEIVE, recieveingItem);
+		this.addEventListener(DndEvent.RETURN, returningItem);
 		this.addEventListener(Event.ENTER_FRAME, onFrame);
 	}
 	
 	private function onFrame(e:Event):Void {
-		if (Dnd.current != null) {
-			if (this.mouseX > 0 && this.mouseX < this.w && this.mouseY > 0 && this.mouseY < this.h) {
-				var curRow = Math.floor(this.mouseY / (this.h / curRows));
-				curDragPos = Math.floor(this.mouseX / (itemWidth + curItemPadding)) + 1;
-				curDragPos = (curRow * curItemsPerRow) + curDragPos;
-				if (curDragPos > this.numChildren) curDragPos = this.numChildren;
-				
-				this.addChildAt(this.dragShadow, (curDragPos == 0) ? 0 : curDragPos - 1);
-				this.refresh();
+		if (this.mouseEnabled) {
+			if (Dnd.current != null) {
+				if (this.mouseX > 0 && this.mouseX < this.w && this.mouseY > 0 && this.mouseY < this.h) {
+					var curRow = Math.floor(this.mouseY / (this.h / curRows));
+					curDragPos = Math.floor(this.mouseX / (itemWidth + curItemPadding)) + 1;
+					curDragPos = (curRow * curItemsPerRow) + curDragPos;
+					if (curDragPos > this.numChildren) curDragPos = this.numChildren;
+					
+					this.addChildAt(this.dragShadow, (curDragPos == 0) ? 0 : curDragPos - 1);
+					this.refresh();
+				} else {
+					if (this.dragShadow.parent == this) {
+						this.removeChild(this.dragShadow);
+						this.refresh();
+					}
+				}
 			} else {
 				if (this.dragShadow.parent == this) {
 					this.removeChild(this.dragShadow);
 					this.refresh();
 				}
-			}
-		} else {
-			if (this.dragShadow.parent == this) {
-				this.removeChild(this.dragShadow);
-				this.refresh();
 			}
 		}
 	}
@@ -69,6 +73,12 @@ class GridBox extends Widget{
 	private function recieveingItem(e:DndEvent):Void {
 		e.accept(this);
 		this.addChildAt(e.obj, curDragPos - 1);
+		if (this.dragShadow.parent != null) this.removeChild(this.dragShadow);
+		this.refresh();
+		cast(e.srcParent, GridBox).refresh();
+	}
+	
+	private function returningItem(e:DndEvent):Void {
 		if (this.dragShadow.parent != null) this.removeChild(this.dragShadow);
 		this.refresh();
 		cast(e.srcParent, GridBox).refresh();
