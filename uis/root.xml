@@ -14,7 +14,7 @@
 				<VBox widthPt="100" align="'center,top'" >
 					<Accordion id="'acc'" h="400" text="'test 1'" >
 						<GridBox >
-							<BoardWidget />
+							<BoardWidget iconAsset="'assets/icons/star.png'" text="'test test test test test test test'" />
 						</GridBox>
 					</Accordion>
 					<Accordion h="400" text="'test 2'" on-add="trace('add');" >

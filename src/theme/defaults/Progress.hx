@@ -4,23 +4,14 @@ import theme.Main;
 import ru.stablex.ui.widgets.Progress in WProgress;
 import ru.stablex.ui.widgets.Widget;
 
-
-/**
-* Defaults for Progress widget
-*
-*/
 class Progress {
 
-    /**
-    * Default section
-    *
-    */
     static public function Default (w:Widget) : Void {
         var progress = cast(w, WProgress);
-        progress.h = 20;
+        progress.h = 10;
         progress.w = 100;
-        progress.skinName     = 'progress';
-        progress.bar.skinName = 'progressBar';
-    }//function Default()
+        progress.skinName     = 'progressBg';
+        progress.bar.skinName = 'progressFg';
+    }
 
-}//class Progress
+}

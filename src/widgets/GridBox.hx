@@ -12,7 +12,7 @@ import ru.stablex.ui.UIBuilder;
 import ru.stablex.ui.widgets.Widget;
 
 class GridBox extends Widget{
-	public var itemWidth = 200;
+	public var itemWidth = 250;
 	public var itemHeight = 150;
 	
 	public var minItemPadding = 10;

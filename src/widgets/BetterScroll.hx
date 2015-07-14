@@ -4,7 +4,10 @@ import ru.stablex.ui.Dnd;
 import ru.stablex.ui.widgets.Scroll;
 
 class BetterScroll extends Scroll {
-
+	// defines area in which scroll is fired when you drag something in it
+	// scroll.h / X
+	public var scrollMargin = 10;
+	
 	public function new() {
 		super();
 		

@@ -19,5 +19,5 @@
     <haxelib name="actuate" />
 	
 
-	<assets path="assets/icons" rename="icons" />
+	<assets path="assets"  />
 </project>

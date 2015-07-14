@@ -16,4 +16,15 @@ class Text {
         txt.label.selectable = false;
         txt.label.embedFonts = true;
     }
+	
+	static public function Condensed (w:Widget) : Void {
+		Default(w);
+		
+		var txt = cast(w, WText);
+		
+		txt.format.font = Main.condensedFont;
+        txt.format.size = 12;
+		txt.format.bold = true;
+
+	}
 }

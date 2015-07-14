@@ -139,7 +139,7 @@ class Skins {
 		var skin = new Layer();
 		 
 		skin.current = new Paint();
-        skin.current.as(Paint).color = 0x800000;
+        skin.current.as(Paint).color = 0xC0C0C0;
         skin.current.as(Paint).paddingTop = 0;
 		skin.current.as(Paint).paddingLeft = 2;
 		skin.current.as(Paint).paddingRight = 2;
@@ -149,6 +149,66 @@ class Skins {
 		skin.behind.as(Slice9).bitmapData = Main.getBitmapData('img/slice9_panel.png');
 		skin.behind.as(Slice9).slice = [10, 22, 10, 22];
 		
+		return skin;
+	}
+	
+	static public function cardsIcon():Img {
+		var skin = new Img();
+		skin.bitmapData = Main.getBitmapData('img/ico/cards.png');
+		return skin;
+	}
+	
+	static public function listsIcon():Img {
+		var skin = new Img();
+		skin.bitmapData = Main.getBitmapData('img/ico/lists.png');
+		return skin;
+	}
+	
+	static public function createdOnIcon():Img {
+		var skin = new Img();
+		skin.bitmapData = Main.getBitmapData('img/ico/created.png');
+		return skin;
+	}
+	
+	static public function ageIcon():Img {
+		var skin = new Img();
+		skin.bitmapData = Main.getBitmapData('img/ico/age.png');
+		return skin;
+	}
+	
+	static public function timeSpentIcon():Img {
+		var skin = new Img();
+		skin.bitmapData = Main.getBitmapData('img/ico/time_spent.png');
+		return skin;
+	}
+	
+	static public function lastActivityIcon():Img {
+		var skin = new Img();
+		skin.bitmapData = Main.getBitmapData('img/ico/last_activity.png');
+		return skin;
+	}
+	
+	static public function progressBg():Slice3 {
+		var skin = new Slice3();
+		skin.bitmapData = Main.getBitmapData('img/progress_bg.png');
+		return skin;
+	}
+	
+	static public function progressFg():Slice3 {
+		var skin = new Slice3();
+		skin.bitmapData = Main.getBitmapData('img/progress_fg.png');
+		return skin;
+	}
+	
+	static public function infoIcon():Img {
+		var skin = new Img();
+		skin.bitmapData = Main.getBitmapData('img/ico/info.png');
+		return skin;
+	}
+	
+	static public function alertIcon():Img {
+		var skin = new Img();
+		skin.bitmapData = Main.getBitmapData('img/ico/alert.png');
 		return skin;
 	}
 }
