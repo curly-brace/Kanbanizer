@@ -3,8 +3,10 @@ package theme;
 import ru.stablex.ui.misc.ColorUtils;
 import ru.stablex.ui.skins.Gradient;
 import ru.stablex.ui.skins.Img;
+import ru.stablex.ui.skins.Layer;
 import ru.stablex.ui.skins.Paint;
 import ru.stablex.ui.skins.Slice3;
+import ru.stablex.ui.skins.Slice9;
 
 class Skins {
 	
@@ -122,6 +124,31 @@ class Skins {
 		skin.borderColor = ColorUtils.brighten(Main.darkColor, 0.1);
 		skin.border = 2;
 		skin.corners = [20];
+		return skin;
+	}
+	
+	static public function slice9Header():Slice9 {
+		var skin = new Slice9();
+		skin.bitmapData = Main.getBitmapData('img/slice9_header.png');
+		skin.slice = [10, 22, 16, 22];
+		
+		return skin;
+	}
+	
+	static public function slice9Panel():Layer {
+		var skin = new Layer();
+		 
+		skin.current = new Paint();
+        skin.current.as(Paint).color = 0x800000;
+        skin.current.as(Paint).paddingTop = 0;
+		skin.current.as(Paint).paddingLeft = 2;
+		skin.current.as(Paint).paddingRight = 2;
+		skin.current.as(Paint).paddingBottom = 2;
+		
+		skin.behind = new Slice9();
+		skin.behind.as(Slice9).bitmapData = Main.getBitmapData('img/slice9_panel.png');
+		skin.behind.as(Slice9).slice = [10, 22, 10, 22];
+		
 		return skin;
 	}
 }

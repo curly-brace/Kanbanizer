@@ -12,8 +12,8 @@ import ru.stablex.ui.UIBuilder;
 import ru.stablex.ui.widgets.Widget;
 
 class GridBox extends Widget{
-	public var itemWidth = 100;
-	public var itemHeight = 100;
+	public var itemWidth = 200;
+	public var itemHeight = 150;
 	
 	public var minItemPadding = 10;
 
@@ -94,7 +94,7 @@ class GridBox extends Widget{
 		if (this.w < itemWidth) return;
 				
 		if (this.numChildren == 0) {
-			this.h = 32;
+			this.h = 64;
 			this.wparent.as(Accordion).setHeight(this.h);
 			return;
 		}
@@ -134,7 +134,7 @@ class GridBox extends Widget{
 		}
 		
 		this.h = curY + minItemPadding * (curRows + 1);
-		this.wparent.as(Accordion).setHeight(this.h);
+		if (this.mouseEnabled) this.wparent.as(Accordion).setHeight(this.h);
 	}
 	
 	override public function refresh():Void {

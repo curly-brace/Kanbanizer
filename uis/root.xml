@@ -10,32 +10,20 @@
 					<Button left="322" defaults="'Menu'" />
 				</Widget>
 			</Widget>
-			<Scroll id="'scroll'">
+			<BetterScroll id="'scroll'">
 				<VBox widthPt="100" align="'center,top'" >
-					<Accordion h="400" text="'test 1'" >
-						<GridBox itemWidth="100" itemHeight="100">
-							<Draggable w="200" h="200" skin:Paint-color="0xFF0000" />
-							<Draggable w="200" h="200" skin:Paint-color="0xFF8040" />
-							<Draggable w="200" h="200" skin:Paint-color="0xFFFF00" />
-							<Draggable w="200" h="200" skin:Paint-color="0x00FF00" />
-							<Draggable w="200" h="200" skin:Paint-color="0x0080FF" />
-							<Draggable w="200" h="200" skin:Paint-color="0x0000FF" />
-							<Draggable w="200" h="200" skin:Paint-color="0x8000FF" />
+					<Accordion id="'acc'" h="400" text="'test 1'" >
+						<GridBox >
+							<BoardWidget />
 						</GridBox>
 					</Accordion>
 					<Accordion h="400" text="'test 2'" on-add="trace('add');" >
-						<GridBox itemWidth="100" itemHeight="100">>
-							<Draggable w="200" h="200" skin:Paint-color="0xFF0000" />
-							<Draggable w="200" h="200" skin:Paint-color="0xFF8040" />
-							<Draggable w="200" h="200" skin:Paint-color="0xFFFF00" />
-							<Draggable w="200" h="200" skin:Paint-color="0x00FF00" />
-							<Draggable w="200" h="200" skin:Paint-color="0x0080FF" />
-							<Draggable w="200" h="200" skin:Paint-color="0x0000FF" />
-							<Draggable w="200" h="200" skin:Paint-color="0x8000FF" />
+						<GridBox >
+
 						</GridBox>
 					</Accordion>
 				</VBox>
-			</Scroll>
+			</BetterScroll>
 			
 		</Widget>
 </ViewStack>

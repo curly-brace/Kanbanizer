@@ -9,7 +9,6 @@ import ru.stablex.ui.events.WidgetEvent;
 import ru.stablex.ui.widgets.Widget;
 
 class Scroll {
-	
     static public function Screeen (w:Widget) : Void {
         var scroll = cast(w, WScroll);
 		

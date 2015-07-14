@@ -3,6 +3,8 @@ package widgets;
 import flash.events.Event;
 import openfl.display.DisplayObject;
 import openfl.events.MouseEvent;
+import openfl.events.TimerEvent;
+import openfl.utils.Timer;
 import ru.stablex.Err;
 import ru.stablex.ui.Dnd;
 import ru.stablex.ui.events.DndEvent;
@@ -25,10 +27,9 @@ class Accordion extends VBox {
 	public var editButton:Button;
 	public var removeButton:Button;
 	
-	private var curHeight = 300.0;
-	
+	public var fuckingIconTimer:Timer = new Timer(0.1, 1);
+		
 	public var text(default, set):String;
-
 	function set_text(txt) {
 		return headerText.text = txt;
 	}
@@ -56,7 +57,7 @@ class Accordion extends VBox {
 				l.paddingRight = 12;
 				l;
 			},
-			children : [
+			children: [
 				icon = UIBuilder.create(Widget, {
 					defaults: 'AccordionArrow',
 				}),
@@ -81,7 +82,16 @@ class Accordion extends VBox {
 		removeButton.addEventListener(MouseEvent.CLICK, removeClick);
 		
 		addChild(header);
+		
+		fuckingIconTimer.addEventListener(TimerEvent.TIMER, function(_) {
+			if (this.icon.rotation == -90) this.icon.top = 28;
+		});
     }
+	
+	public function addItem(item:Widget) {
+		area.addChild(item);
+		this.area.refresh();
+	}
 	
 	private function removeClick(e:MouseEvent):Void {
 		e.stopPropagation();
@@ -104,9 +114,8 @@ class Accordion extends VBox {
 		if (area != null) {
 			if (opened) {
 				area.mouseEnabled = true;
-				this.tween(.5, { h: this.curHeight }, 'Quad.easeInOut');
+				this.tween(.5, { h: area.h + 32 }, 'Quad.easeInOut');
 			} else {
-				curHeight = this.h;
 				area.mouseEnabled = false;
 				this.tween(.5, { h: 32 }, 'Quad.easeInOut');
 			}
@@ -147,6 +156,13 @@ class Accordion extends VBox {
 			icon.tween(0.5, { rotation: 0, top: 4 }, 'Quad.easeInOut');
 		}
 	}
+	
+	override public function onResize():Void {
+		super.onResize();
+		
+		fuckingIconTimer.start();
+	}
+
 }
 
 class AccordionEvent extends WidgetEvent {

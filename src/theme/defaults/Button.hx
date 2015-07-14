@@ -65,6 +65,13 @@ class Button {
 		btn.skinPressedName = 'smallButtonDown';
 	}
 	
+	static public function SmallMenu(w:Widget) {
+		SmallButton(w);
+		var btn = cast(w, WButton);
+		btn.ico.bitmapData = Main.getBitmapData('img/ico/menu.png');
+		btn.paddingLeft = 11;
+	}
+	
 	static public function Add(w:Widget) {
 		SmallButton(w);
 		var btn = cast(w, WButton);

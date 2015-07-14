@@ -12,7 +12,9 @@ import ru.stablex.ui.UIBuilder;
 import ru.stablex.ui.widgets.Button;
 import ru.stablex.ui.widgets.Scroll;
 import ru.stablex.ui.widgets.Widget;
+import widgets.Accordion;
 import widgets.Accordion.AccordionEvent;
+import widgets.BoardWidget;
 
 class Main extends Sprite{
 	private var rootStack:Widget;
@@ -34,9 +36,10 @@ class Main extends Sprite{
 		removeEventListener(Event.ADDED_TO_STAGE, init);
 		stage.addEventListener(Event.RESIZE, onResize);
 
+		UIBuilder.regClass('widgets.BetterScroll');
 		UIBuilder.regClass('widgets.Accordion');
 		UIBuilder.regClass('widgets.GridBox');
-		UIBuilder.regClass('widgets.Draggable');
+		UIBuilder.regClass('widgets.BoardWidget');
 		UIBuilder.regEvent('add',  'widgets.AccordionEvent.ADD', 'widgets.AccordionEvent');
 		UIBuilder.regEvent('edit',  'widgets.AccordionEvent.EDIT', 'widgets.AccordionEvent');
 		UIBuilder.regEvent('remove',  'widgets.AccordionEvent.REMOVE', 'widgets.AccordionEvent');
@@ -51,6 +54,8 @@ class Main extends Sprite{
 		UIBuilder.get('scroll').as(Scroll).hBar = null;
 		
 		Registry.dragRoot = UIBuilder.get('desktop');
+		
+		UIBuilder.get('acc').addEventListener(AccordionEvent.ADD, function(_) { UIBuilder.get('acc').as(Accordion).addItem(UIBuilder.create(BoardWidget)); } );
 	}
 	
 	private function onResize(event:Event) {

@@ -37,4 +37,12 @@ class Widget {
 		w.w = 100;
 		w.h = 100;
 	}
+	
+	static public function SizableHeader(w:ru.stablex.ui.widgets.Widget):Void {
+		w.skinName = 'slice9Header';
+	}
+	
+	static public function SizablePanel(w:ru.stablex.ui.widgets.Widget):Void {
+		w.skinName = 'slice9Panel';
+	}
 }
