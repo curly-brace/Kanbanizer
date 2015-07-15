@@ -4,17 +4,17 @@
 			<Widget defaults="'Background'" >
 				<Widget widthPt="99" h="32" top="4" left="4" layout:Column-cols="[120, 110, -1, 90, 32]" layout:Column-cellPadding="4">
 					<Button text="'Add group'" defaults="'AddGroup'" />
-					<Button left="192" text="'Calendar'" defaults="'Calendar'" />
+					<Button text="'Calendar'" defaults="'Calendar'" />
 					<InputText top="4" text="'Search for board'" on-click="if($this.text=='Search for board')$this.text='';"/>
-					<Button left="98"  text="'Closed'" defaults="'Trash'" />
-					<Button left="322" defaults="'Menu'" />
+					<Button text="'Closed'" defaults="'Trash'" />
+					<Button defaults="'Menu'" on-click="menuClicked($this.top, $this.left);" />
 				</Widget>
 			</Widget>
 			<BetterScroll id="'scroll'">
 				<VBox widthPt="100" align="'center,top'" >
 					<Accordion id="'acc'" h="400" text="'test 1'" >
 						<GridBox >
-							<BoardWidget iconAsset="'assets/icons/star.png'" text="'test test test test test test test'" />
+							<BoardWidget iconAsset="'assets/icons/star.png'" text="'test test test test test test test test test'" />
 						</GridBox>
 					</Accordion>
 					<Accordion h="400" text="'test 2'" on-add="trace('add');" >

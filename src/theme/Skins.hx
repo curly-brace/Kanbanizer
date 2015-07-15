@@ -211,4 +211,32 @@ class Skins {
 		skin.bitmapData = Main.getBitmapData('img/ico/alert.png');
 		return skin;
 	}
+	
+	static public function popupMenu():Slice9 {
+		var skin = new Slice9();
+		skin.bitmapData = Main.getBitmapData('img/menu.png');
+		skin.slice = [16, 32, 16, 32];
+		return skin;
+	}
+	
+	static public function popupUp():Img {
+		var skin = new Img();
+		skin.bitmapData = Main.getBitmapData('img/popup_up.png');
+		skin.scaleImg = true;
+		return skin;
+	}
+	
+	static public function popupOver():Img {
+		var skin = new Img();
+		skin.bitmapData = Main.getBitmapData('img/popup_over.png');
+		skin.scaleImg = true;
+		return skin;
+	}
+	
+	static public function popupDown():Img {
+		var skin = new Img();
+		skin.bitmapData = Main.getBitmapData('img/popup_down.png');
+		skin.scaleImg = true;
+		return skin;
+	}
 }

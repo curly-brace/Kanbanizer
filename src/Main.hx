@@ -15,10 +15,11 @@ import ru.stablex.ui.widgets.Widget;
 import widgets.Accordion;
 import widgets.Accordion.AccordionEvent;
 import widgets.BoardWidget;
+import widgets.PopupMenu;
 
 class Main extends Sprite{
 	private var rootStack:Widget;
-	private var mainColor:UInt = 0x002b3c;
+	private var desktopMenu:PopupMenu;
 	
 	public static function main() {
 		Lib.current.stage.align = StageAlign.TOP_LEFT;
@@ -54,12 +55,33 @@ class Main extends Sprite{
 		UIBuilder.get('scroll').as(Scroll).hBar = null;
 		
 		Registry.dragRoot = UIBuilder.get('desktop');
-		
-		UIBuilder.get('acc').addEventListener(AccordionEvent.ADD, function(_) { UIBuilder.get('acc').as(Accordion).addItem(UIBuilder.create(BoardWidget)); } );
 	}
 	
 	private function onResize(event:Event) {
 		rootStack.resize(stage.stageWidth, stage.stageHeight);
 		UIBuilder.get('scroll').as(Scroll).hBar = null;
+	}
+	
+	private function menuClicked(x:Float, y:Float) {
+		if (desktopMenu == null) {
+			desktopMenu = UIBuilder.create(PopupMenu, {
+				w: 250,
+				top: 40,
+			});
+			
+			desktopMenu.setItems([
+				'Settings',
+				'Import from Trello',
+				'Check for updates'
+			]);
+			
+			desktopMenu.handler = function(res) {
+				trace(res);
+			};
+		}
+
+		desktopMenu.left = Registry.dragRoot.w - 255;
+		
+		desktopMenu.show();
 	}
 }
